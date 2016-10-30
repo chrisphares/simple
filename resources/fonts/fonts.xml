@@ -1,0 +1,4 @@
+<resources>
+	<font id="simple" filename="simple.fnt" filter="0123456789"/>
+	<font id="simpleBold" filename="simplebold.fnt" filter="0123456789"/>
+</resources>

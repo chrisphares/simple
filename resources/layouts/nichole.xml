@@ -1,0 +1,11 @@
+<layout id="nichole">
+	<drawable id="nicholeFace" />
+	<label id="hhLabel" x="148" y="5" text="@Strings.hhString" justification="Gfx.TEXT_JUSTIFY_RIGHT" color="Gfx.COLOR_WHITE" />
+	<label id="mmLabel" x="150" y="5" text="@Strings.mmString" justification="Gfx.TEXT_JUSTIFY_LEFT" color="Gfx.COLOR_WHITE" />
+	<label id="ssLabel" x="200" y="65" text="@Strings.ssString" justification="Gfx.TEXT_JUSTIFY_RIGHT" color="Gfx.COLOR_WHITE" font="Gfx.FONT_MEDIUM" />
+	<label id="dayLabel" x="201" y="111" text="@Strings.dayString" justification="Gfx.TEXT_JUSTIFY_RIGHT" color="Gfx.COLOR_WHITE" font="Gfx.FONT_SMALL" />
+	<label id="dateLabel" x="201" y="128" text="@Strings.dateString" justification="Gfx.TEXT_JUSTIFY_RIGHT" color="Gfx.COLOR_WHITE" font="Gfx.FONT_SMALL" />
+	<label id="batLabel" x="121" y="128" text="@Strings.batString" justification="Gfx.TEXT_JUSTIFY_RIGHT" color="Gfx.COLOR_WHITE" font="Gfx.FONT_SYSTEM_XTINY" />
+	<label id="percentLabel" x="124" y="128" text="@Strings.percentString" justification="Gfx.TEXT_JUSTIFY_LEFT" color="Gfx.COLOR_LT_GRAY" font="Gfx.FONT_SYSTEM_XTINY" />
+	<label id="stepLabel" x="100" y="71" text="@Strings.stepString" justification="Gfx.TEXT_JUSTIFY_LEFT" color="Gfx.COLOR_WHITE" font="Gfx.FONT_SYSTEM_XTINY" />
+</layout>

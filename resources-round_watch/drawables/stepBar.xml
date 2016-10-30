@@ -1,0 +1,3 @@
+<drawable-list id="stepBar">
+	<shape type="rectangle" x="106" y="142" width="70" height="3" color="Gfx.COLOR_DK_GRAY" />
+</drawable-list>

@@ -1,0 +1,6 @@
+<drawable-list id="nicholeFace" background="Gfx.COLOR_BLACK" >
+	<shape type="rectangle" x="0" y="0" width="100" height="61" color="Gfx.COLOR_YELLOW" />
+	<shape type="rectangle" x="0" y="61" width="100" height="144" color="Gfx.COLOR_RED" />
+	<shape type="rectangle" x="20" y="57" width="30" height="30" color="Gfx.COLOR_RED" />
+    <bitmap id="nicholeImg" filename="../images/nichole.full.png" x="0" y="0" />
+</drawable-list>
