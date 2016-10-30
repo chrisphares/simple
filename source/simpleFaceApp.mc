@@ -7,7 +7,7 @@ var numColor = Gfx.COLOR_DK_RED;
 var hairColor = Gfx.COLOR_YELLOW;
 var shirtColor = Gfx.COLOR_RED;
 
-class NicholeFaceApp extends App.AppBase {
+class simpleFaceApp extends App.AppBase {
 
 	function initialize() {
 		AppBase.initialize({});
@@ -22,6 +22,6 @@ class NicholeFaceApp extends App.AppBase {
 	}
 
 	function getInitialView() {
-		return [new NicholeFaceView()];
+		return [new simpleFaceView()];
 	}
 }

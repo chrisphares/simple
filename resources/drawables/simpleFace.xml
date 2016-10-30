@@ -1,0 +1,3 @@
+<drawable-list id="simpleFaceFace" background="Gfx.COLOR_WHITE" >
+    <bitmap id="treeImg" filename="../images/tree.png" x="0" y="0" />
+</drawable-list>

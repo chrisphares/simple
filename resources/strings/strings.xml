@@ -1,7 +1,6 @@
 <strings>
-    <string id="AppName">NicholeFace</string>
+    <string id="AppName">simpleFace</string>
 	<string id="num_title">Number Color</string>
-	<string id="hair_title">Hair Color</string>
 	<string id="shirt_title">Shirt Color</string>
 	<string id="White">White</string>
 	<string id="Black">Black</string>
@@ -17,13 +16,8 @@
 	<string id="Dk_Blue">Dark Blue</string>
 	<string id="Pink">Pink</string>
 	<string id="Purple">Purple</string>
-	<string id="Blonde">Blonde</string>
-	<string id="Brunette">Brunette</string>
-	<string id="RedHead">RedHead</string>
 	
-	<string id="hhString" />
-	<string id="mmString" />
-	<string id="ssString" />
+	<string id="hmString" />
 	<string id="dayString" />
 	<string id="dateString" />
 	<string id="batString" />

@@ -6,22 +6,18 @@ using Toybox.Application as App;
 using Toybox.ActivityMonitor as Act;
 using Toybox.Time.Gregorian as Calendar;
 
-class NicholeFaceView extends Ui.WatchFace {
+class simpleFaceView extends Ui.WatchFace {
 
 	var showOther = false;
 
-	var hhTime,
-		mmTime,
-		ssTime,
+	var hmTime,
 		battery,
 		percentString,
 		dayNum,
 		dateMonth,
 		stepCount;
 
-	var	simpleFont,
-		simpleBoldFont,
-		deviceSettings,
+	var	deviceSettings,
 		steps,
 		stepGoal,
 		stepBarDraw,
@@ -40,27 +36,17 @@ class NicholeFaceView extends Ui.WatchFace {
 			$.numColor = app.getProperty("num_prop");
 		}
 
-		if (app.getProperty("hair_prop")) {
-			$.hairColor = app.getProperty("hair_prop");
-		}
-
 		if (app.getProperty("shirt_prop")) {
 			$.shirtColor = app.getProperty("shirt_prop");
 		}
     }
 
 	function onLayout(dc) {
-		setLayout(Rez.Layouts.nichole(dc));
-
-		//fonts
-		simpleFont = Ui.loadResource(Rez.Fonts.simple);
-		simpleBoldFont = Ui.loadResource(Rez.Fonts.simpleBold);
+		setLayout(Rez.Layouts.simple(dc));
 
 		//text labels
 		stepCount = View.findDrawableById("stepLabel");	//step goal number
-		hhTime = View.findDrawableById("hhLabel");		//hour
-		mmTime = View.findDrawableById("mmLabel");		//minute
-		ssTime = View.findDrawableById("ssLabel");		//seconds
+		hmTime = View.findDrawableById("hmLabel");		//hour:minute
 		dayNum = View.findDrawableById("dayLabel");	//date string
 		dateMonth = View.findDrawableById("dateLabel");	//date string
 		battery = View.findDrawableById("batLabel");	//battery % string
@@ -75,8 +61,6 @@ class NicholeFaceView extends Ui.WatchFace {
 
 		if (showOther) { //low power mode
 
-			ssTime.setText(Lang.format("$1$",[clockTime.sec])); 			// seconds
-
 			//draw day | month | date
 			var now = Time.now();
 			var info = Calendar.info(now, Time.FORMAT_LONG);
@@ -84,21 +68,21 @@ class NicholeFaceView extends Ui.WatchFace {
 			var month = Lang.format("$1$", [info.month]);
 			var date = Lang.format("$1$", [info.day]);
 			string = date + " " + month;
-			dateMonth.setText(string);
+			//dateMonth.setText(string);
 			string = day;
-			dayNum.setText(string);
+			//dayNum.setText(string);
 
 			// battery % value
 			var sysStats = Sys.getSystemStats();
 			string = Lang.format("$1$",[sysStats.battery.format("%01.0i")]);
-			battery.setText(string);
-			percentString.setText("%");
+			//battery.setText(string);
+			//percentString.setText("%");
 
 			//draw steps
 			var activityInfo = Act.getInfo();
 			stepGoal = activityInfo.stepGoal;
 			steps = activityInfo.steps;
-			stepCount.setText(steps.toString());
+			//stepCount.setText(steps.toString());
 		}
 		else {
 			dayNum.setText("");		//clear day
@@ -106,10 +90,9 @@ class NicholeFaceView extends Ui.WatchFace {
 			battery.setText("");		//clear battery % value
 			percentString.setText("");	//clear battery '%'
 			stepCount.setText("");		//clear step goal number
-			ssTime.setText("");			//clear seconds
 		}
 
-		//draw hours
+		//get hours
 		if (deviceSettings.is24Hour == false) {
 			string = clockTime.hour % 12;
 			string = (string == 0) ? 12 : string; //if it's 0, change to 12
@@ -119,23 +102,18 @@ class NicholeFaceView extends Ui.WatchFace {
 		else {
 			string = Lang.format("$1$",[clockTime.hour.format("%01d")]);
 		}
-		hhTime.setText(string);
-		hhTime.setFont(simpleBoldFont);
 
-		//draw minutes
-		string = clockTime.min;
-		string = Lang.format("$1$",[string.format("%02d")]);
-		mmTime.setText(string);
-		mmTime.setFont(simpleFont);
-		mmTime.setColor($.numColor);
+		hmTime.setText(Lang.format("$1$:$2$",[string, clockTime.min.format("%02d")]));
+		hmTime.setColor(Gfx.COLOR_BLUE);
 
 		View.onUpdate(dc); //draw everything in the layout
 
 		if (showOther) { //draw dynamic things on top of the layout
+
 			//draw step goal & filler
-			stepBarDraw = new Rez.Drawables.stepBar();
-			stepBarDraw.draw(dc);
-			dc.setColor($.numColor, Gfx.COLOR_TRANSPARENT);
+			//stepBarDraw = new Rez.Drawables.stepBar();
+			//stepBarDraw.draw(dc);
+			//dc.setColor($.numColor, Gfx.COLOR_TRANSPARENT);
 
 			if (deviceSettings.screenShape == Sys.SCREEN_SHAPE_ROUND) {
 					if (steps < stepGoal) {
@@ -144,7 +122,14 @@ class NicholeFaceView extends Ui.WatchFace {
 					else {
 						steps = 70;
 					}
-					dc.fillRectangle(106, 142, steps, 3);
+					//dc.fillRectangle(106, 142, steps, 3); //total width calc when 100%
+
+					// seconds
+					dc.setColor(Gfx.COLOR_PINK, Gfx.COLOR_TRANSPARENT);
+					var sec = (clockTime.sec / 60.0) * Math.PI * 2;
+					var xh = ((dc.getWidth() / 2) - 9) * Math.sin(sec);
+					var yh = - ((dc.getHeight() / 2) - 9) * Math.cos(sec);
+					dc.fillCircle((dc.getWidth() / 2) + xh, (dc.getHeight() / 2) + yh, 7);
 			}
 			else if (deviceSettings.screenShape == Sys.SCREEN_SHAPE_SEMI_ROUND) {
 				if (deviceSettings.screenWidth > 148) {

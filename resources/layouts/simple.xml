@@ -1,5 +1,5 @@
-<layout id="nichole">
-	<drawable id="nicholeFace" />
+<layout id="simple">
+	<drawable id="simpleFace" />
 	<label id="hhLabel" x="148" y="5" text="@Strings.hhString" justification="Gfx.TEXT_JUSTIFY_RIGHT" color="Gfx.COLOR_WHITE" />
 	<label id="mmLabel" x="150" y="5" text="@Strings.mmString" justification="Gfx.TEXT_JUSTIFY_LEFT" color="Gfx.COLOR_WHITE" />
 	<label id="ssLabel" x="200" y="65" text="@Strings.ssString" justification="Gfx.TEXT_JUSTIFY_RIGHT" color="Gfx.COLOR_WHITE" font="Gfx.FONT_MEDIUM" />

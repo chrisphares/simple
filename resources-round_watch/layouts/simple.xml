@@ -1,8 +1,6 @@
-<layout id="nichole">
-	<drawable id="nicholeFace" />
-	<label id="hhLabel" x="155" y="75" text="@Strings.hhString" justification="Gfx.TEXT_JUSTIFY_RIGHT" color="Gfx.COLOR_WHITE" />
-	<label id="mmLabel" x="207" y="75" text="@Strings.mmString" justification="Gfx.TEXT_JUSTIFY_RIGHT" color="Gfx.COLOR_WHITE" />
-	<label id="ssLabel" x="204" y="134" text="@Strings.ssString" justification="Gfx.TEXT_JUSTIFY_RIGHT" color="Gfx.COLOR_WHITE" font="Gfx.FONT_MEDIUM" />
+<layout id="simple">
+	<drawable id="simpleFace" />
+	<label id="hmLabel" x="(dc.getWidth() / 2)" y="(dc.getHeight() / 2) + 36" text="@Strings.hmString" justification="Gfx.TEXT_JUSTIFY_CENTER" color="Gfx.COLOR_WHITE" />
 	<label id="dayLabel" x="105" y="3" text="@Strings.dayString" justification="Gfx.TEXT_JUSTIFY_LEFT" color="Gfx.COLOR_WHITE" font="Gfx.FONT_SMALL" />
 	<label id="dateLabel" x="105" y="25" text="@Strings.dateString" justification="Gfx.TEXT_JUSTIFY_LEFT" color="Gfx.COLOR_WHITE" font="Gfx.FONT_SMALL" />
 	<label id="batLabel" x="125" y="195" text="@Strings.batString" justification="Gfx.TEXT_JUSTIFY_RIGHT" color="Gfx.COLOR_WHITE 	" font="Gfx.FONT_SYSTEM_XTINY" />
